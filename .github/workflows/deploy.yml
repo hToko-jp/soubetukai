@@ -1,0 +1,24 @@
+name: Deploy to Firebase Hosting on merge
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # 今回はビルド手順がないため、npm install や build コマンドは不要です。
+      # もし将来的にビルドが必要になった場合は、ここで実行します。
+      # - run: npm ci && npm run build
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CHAT_APP_50F39 }}'
+          channelId: live
+          projectId: chat-app-50f39
