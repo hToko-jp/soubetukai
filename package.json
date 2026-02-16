@@ -1,0 +1,13 @@
+{
+  "name": "farewell-party-invite",
+  "version": "1.0.0",
+  "description": "Farewell party invitation website with RSVP",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

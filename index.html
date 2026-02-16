@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>送別会のご案内</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+JP:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Firebase SDK -->
+    <script type="module" src="app.js"></script>
+</head>
+
+<body>
+    <div class="scroll-container">
+        <header class="hero">
+            <div class="hero-content">
+                <p class="subtitle">A FOND FAREWELL</p>
+                <h1 class="title">送別会のご案内</h1>
+                <p class="date">MARCH 24th, 2026</p>
+                <div class="scroll-indicator">
+                    <span>SCROLL</span>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="background-overlay"></div>
+        </header>
+
+        <section class="details">
+            <div class="container">
+                <h2 class="section-title">Party Details</h2>
+
+                <div class="card event-card primary-party">
+                    <div class="card-header">
+                        <span class="badge">一次会</span>
+                        <h3>Farewell Dinner</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-row">
+                            <span class="icon">📍</span>
+                            <div class="info-text">
+                                <strong>帯広 ふくいホテル</strong>
+                                <p>北海道帯広市西1条南11丁目19-1</p>
+                            </div>
+                        </div>
+                        <div class="map-container">
+                            <iframe src="https://maps.google.com/maps?q=帯広+ふくいホテル&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                        </div>
+                        <div class="info-row">
+                            <span class="icon">⏰</span>
+                            <div class="info-text">
+                                <strong>18:00 -</strong>
+                                <p>Reception starts at 18:00</p>
+                            </div>
+                        </div>
+                        <div class="info-row">
+                            <span class="icon">💴</span>
+                            <div class="info-text">
+                                <strong>会費 6,000円</strong>
+                                <p>Fee: 6,000 yen</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card event-card secondary-party">
+                    <div class="card-header">
+                        <span class="badge secondary">二次会</span>
+                        <h3>After Party</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-row">
+                            <span class="icon">🍸</span>
+                            <div class="info-text">
+                                <strong>帯広 チル (Chill)</strong>
+                                <p>北海道帯広市西1条南9丁目15</p>
+                            </div>
+                        </div>
+                        <div class="map-container">
+                            <iframe
+                                src="https://maps.google.com/maps?q=北海道帯広市西1条南9丁目15+チル&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                        </div>
+                        <div class="info-row">
+                            <span class="icon">⏰</span>
+                            <div class="info-text">
+                                <strong>20:00 -</strong>
+                                <p>Let's keep the night going</p>
+                            </div>
+                        </div>
+                        <div class="info-row">
+                            <span class="icon">💸</span>
+                            <div class="info-text">
+                                <strong>会費：実費</strong>
+                                <p>Fee: Pay as you go</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="rsvp" id="rsvp">
+            <div class="container">
+                <h2 class="section-title">RSVP</h2>
+                <p class="rsvp-text">ご多忙中とは存じますが、ぜひご出席くださいますようお願い申し上げます。</p>
+
+                <form id="rsvpForm" class="rsvp-form">
+                    <div class="form-group">
+                        <label for="name">お名前 / Name</label>
+                        <input type="text" id="name" name="name" required placeholder="山田 太郎">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label>一次会 (18:00~)</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="party1" value="attend" checked>
+                                    <span>出席</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="party1" value="absent">
+                                    <span>欠席</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group half">
+                            <label>二次会 (20:00~)</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="party2" value="attend" checked>
+                                    <span>出席</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="party2" value="absent">
+                                    <span>欠席</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">メッセージ / Message (Optional)</label>
+                        <textarea id="message" name="message" rows="3" placeholder="一言メッセージがあればどうぞ"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">送信する / Submit RSVP</button>
+                </form>
+                <div id="successMessage" class="hidden">
+                    <h3>ありがとうございます！</h3>
+                    <p>出欠を受け付けました。</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #eee;">
+                    <p style="margin-bottom: 1.5rem; color: #666; font-family: var(--font-serif);">現在の出席状況はこちらから確認できます
+                    </p>
+                    <a href="admin.html" class="outline-btn">参加者リストを見る</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Farewell Party Committee</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;"><a href="admin.html"
+                    style="color: rgba(255,255,255,0.4); text-decoration: none;">管理者ページ (Admin)</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

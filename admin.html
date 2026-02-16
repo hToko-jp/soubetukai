@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>出欠確認 (Admin)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+JP:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Admin specific inline styles for simplicity, or move to style.css */
+        .admin-header {
+            background: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .attendee-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .attendee-table th,
+        .attendee-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .attendee-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .status-attend {
+            color: green;
+            font-weight: bold;
+        }
+
+        .status-absent {
+            color: #999;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.2rem;
+            color: #666;
+        }
+    </style>
+    <!-- Firebase SDK -->
+    <script type="module" src="admin.js"></script>
+</head>
+
+<body>
+    <div class="admin-header">
+        <h1>送別会 出欠状況</h1>
+    </div>
+
+    <div class="container" style="padding-top: 2rem;">
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>一次会 参加者</h3>
+                <div class="stat-number" id="count1">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>二次会 参加者</h3>
+                <div class="stat-number" id="count2">-</div>
+            </div>
+        </div>
+
+        <div id="loading" class="loading">読み込み中...</div>
+
+        <table class="attendee-table hidden" id="attendeeTable">
+            <thead>
+                <tr>
+                    <th>お名前</th>
+                    <th>一次会</th>
+                    <th>二次会</th>
+                    <th>メッセージ</th>
+                </tr>
+            </thead>
+            <tbody id="attendeeList">
+                <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="index.html" style="color: var(--primary-color);">← 案内ページに戻る</a>
+        </div>
+    </div>
+</body>
+
+</html>
