@@ -1,26 +1,32 @@
-name: Deploy to Firebase Hosting on merge
+name: Deploy to GitHub Pages
 
 on:
-  workflow_dispatch:
-  # push トリガーは Firebase サービスアカウントキーを GitHub Secrets に登録してから有効にしてください
-  # push:
-  #   branches:
-  #     - main
-  #     - master
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  build_and_deploy:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      # 今回はビルド手順がないため、npm install や build コマンドは不要です。
-      # もし将来的にビルドが必要になった場合は、ここで実行します。
-      # - run: npm ci && npm run build
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
-          channelId: live
-          projectId: chat-app-50f39
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
