@@ -413,6 +413,77 @@ footer {
     color: #155724;
 }
 
+/* Shop Details */
+.shop-details {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.shop-details h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-family: var(--font-serif);
+}
+
+.shop-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.shop-detail-item {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+}
+
+.detail-label {
+    color: #888;
+    font-weight: bold;
+    margin-bottom: 0.1rem;
+}
+
+.detail-value {
+    color: var(--text-color);
+}
+
+.shop-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.shop-link {
+    flex: 1;
+    min-width: 140px;
+    padding: 0.8rem;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.shop-link.tabelog {
+    background-color: #f7941d;
+    color: white;
+}
+
+.shop-link.hotpepper {
+    background-color: #ff3333;
+    color: white;
+}
+
+.shop-link:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
 /* Responsiveness */
 @media (max-width: 768px) {
     .title {
@@ -426,5 +497,9 @@ footer {
 
     .rsvp-form {
         padding: 1.5rem;
+    }
+
+    .shop-details-grid {
+        grid-template-columns: 1fr;
     }
 }
