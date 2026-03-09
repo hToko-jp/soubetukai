@@ -6,5 +6,5 @@ export const firebaseConfig = {
     messagingSenderId: "1019778751519",
     appId: "1:1019778751519:web:e4dbf67d4d109522bac92a",
     measurementId: "G-JJPPQ62WRC",
-    databaseURL: "https://soubetukai-default-rtdb.asia-southeast1.firebasedatabase.app"
+    databaseURL: "https://soubetukai-default-rtdb.firebaseio.com"
 };

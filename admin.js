@@ -1,11 +1,11 @@
 
-import { firebaseConfig } from "./firebase-config.js";
+import { firebaseConfig } from "./firebase-config.js?v=2";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+const database = getDatabase(app, firebaseConfig.databaseURL);
 
 const attendeeList = document.getElementById('attendeeList');
 const count1 = document.getElementById('count1');
